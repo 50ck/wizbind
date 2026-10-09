@@ -60,7 +60,7 @@ async function exchange(path,body,signal){
   if(state)states.set(item.ip,state);
   if(!item.ok)states.delete(item.ip);
   if(version!==revision)continue;
-  if(row)row.textContent=item.ok?(body?'Change confirmed':state?(state.state?'On':'Off'):'Change confirmed'):'Not confirmed';
+  if(row)row.textContent=item.ok?(body?'Change confirmed':state?(state.state?'On':'Off'):'Change confirmed'):'Offline';
   if(icon)icon.src='/assets/'+(!item.ok?'disconnected_device_icon':state?'icon_bulb_'+(state.state?'on':'off'):'wifi_connecting')+'.svg';
  }
  if(version!==revision)return data;

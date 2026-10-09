@@ -1,6 +1,7 @@
 """User CLI: private config, local labels, AP lifetime and assisted onboarding."""
 
 import argparse
+import fcntl
 import json
 import os
 import re
@@ -12,6 +13,7 @@ import sys
 import threading
 import time
 import unicodedata
+from contextlib import ExitStack
 from pathlib import Path
 
 from . import config
@@ -90,6 +92,7 @@ def parser():
     )
     p.add_argument("--worker", action="store_true", help=argparse.SUPPRESS)
     sub = p.add_subparsers(dest="action")
+    sub.add_parser("reset", help="Delete saved settings and device records")
     onboard = sub.add_parser(
         "onboard", help="AP on this host; manual pairing sender on a second device"
     )
@@ -149,6 +152,29 @@ def refresh(args, cfg, interface):
     if found:
         config.save(args.config, cfg)
     return found
+
+
+def reset(args):
+    if not args.worker and input(
+        "Are you sure you want to start from scratch with no data? (Y/n) "
+    ).strip().casefold() not in ("y", "yes"):
+        return 0
+    locks = list(Path("/run").glob("wizbind-*.lock"))
+    if locks:
+        elevated(args, ["reset"])
+    with ExitStack() as stack:
+        for path in locks:
+            lock = stack.enter_context(
+                os.fdopen(os.open(path, os.O_RDONLY | os.O_NOFOLLOW), "r")
+            )
+            try:
+                fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError:
+                raise RuntimeError("Stop the running wizbind instance before resetting") from None
+        print("Deleting...", flush=True)
+        args.config.unlink(missing_ok=True)
+        print("OK", flush=True)
+    return 0
 
 
 def control(args, cfg, interface):
@@ -359,6 +385,8 @@ def main(argv=None):
     if args.worker and os.geteuid() != 0:
         raise ValueError("Internal worker requires elevation")
     args.config = args.config.expanduser().absolute()
+    if args.action == "reset":
+        return reset(args)
     cfg = config.load(args.config)
     if args.action == "list" and args.what == "modes":
         for preset in PRESETS:
