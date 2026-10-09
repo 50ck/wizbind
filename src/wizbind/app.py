@@ -1,12 +1,13 @@
 """User CLI: private config, local labels, AP lifetime and assisted onboarding."""
 
 import argparse
-import getpass
 import json
 import os
 import re
+import secrets
 import shutil
 import signal
+import string
 import sys
 import threading
 import time
@@ -406,8 +407,10 @@ def main(argv=None):
         if args.ssid:
             cfg["ap"]["ssid"] = args.ssid
     if args.action in ("run", "onboard") and not cfg["ap"].get("password"):
-        cfg["ap"]["password"] = getpass.getpass(
-            "AP Wi-Fi password (stored in private config): "
+        if args.action != "onboard":
+            raise ValueError("No AP password configured; run wizbind onboard first")
+        cfg["ap"]["password"] = "".join(
+            secrets.choice(string.ascii_letters + string.digits) for _ in range(24)
         )
         validate_credentials(cfg["ap"]["ssid"], cfg["ap"]["password"])
     config.save(args.config, cfg)
