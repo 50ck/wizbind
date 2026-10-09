@@ -204,9 +204,9 @@ def assisted(args, cfg, ap):
     payload = generate_pairing_payload(
         settings["ssid"], settings["password"], hid=int(settings["home_id"])
     )
-    print("1. Put the bulb in manual pairing mode (purple blinking).")
+    print("\n1. Put the bulb in manual pairing mode (purple blinking).")
     print("2. On the second device, connect to WiZConfig_xxxx and obtain DHCP.")
-    print("3. Paste this command:\n")
+    print("3. On the second device, paste this command in a terminal and execute it:\n")
     # Quoted heredoc prevents shell expansion and keeps the payload out of curl argv.
     print(
         "curl --fail --silent --show-error --noproxy '*' "
