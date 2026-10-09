@@ -8,7 +8,7 @@ import tempfile
 from pathlib import Path
 
 DEFAULTS = {
-    "ssid": "RGB",
+    "ssid": "50ck4WiZ",
     "address": "192.168.33.1/24",
     "country": "ES",
     "channel": "6",
