@@ -206,8 +206,7 @@ def assisted(args, cfg, ap):
     )
     print("1. Put the bulb in manual pairing mode (purple blinking).")
     print("2. On the second device, connect to WiZConfig_xxxx and obtain DHCP.")
-    print("3. Paste this command (credential material; keep it private):")
-    print("   Use the WiZConfig DHCP gateway if it differs from 192.168.56.1.")
+    print("3. Paste this command:\n")
     # Quoted heredoc prevents shell expansion and keeps the payload out of curl argv.
     print(
         "curl --fail --silent --show-error --noproxy '*' "
@@ -218,10 +217,7 @@ def assisted(args, cfg, ap):
     )
     print(json.dumps(payload, ensure_ascii=True, separators=(",", ":")))
     print("WIZBIND_PAIRING")
-    print(
-        "Listening for updates (DHCP lease observations; credentials redacted)…",
-        flush=True,
-    )
+    print("\nListening for updates...", flush=True)
     deadline = time.monotonic() + args.timeout
     known = {d["mac"] for d in config.devices(cfg).values()}
     target = config.devices(cfg)[args.device]["mac"] if args.device else None
@@ -290,7 +286,6 @@ def runtime(args, cfg, interface):
     validate_credentials(settings["ssid"], settings["password"])
     if not 1 <= int(settings["home_id"]) <= 0x7FFFFFFF:
         raise ValueError("Use a nonzero home_id for persistence")
-    print("Testing interface... AP supported.", flush=True)
     with Session(
         interface,
         settings["address"],

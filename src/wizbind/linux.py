@@ -16,6 +16,10 @@ from pathlib import Path
 TOOLS = ("ip", "iw", "hostapd", "dnsmasq")
 
 
+class AlreadyRunning(RuntimeError):
+    """The selected interface is owned by another wizbind instance."""
+
+
 def set_hidden(control, interface, hidden):
     """Update beacons through the owned hostapd control socket, without reload."""
     with (
@@ -160,7 +164,11 @@ class Session:
                 0o600,
             )
             self.lock = os.fdopen(fd, "w")
-            fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            try:
+                fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError:
+                raise AlreadyRunning("Another instance is already running!") from None
+            print("Testing interface... AP supported.", flush=True)
             self.original = preflight(self.interface, str(self.address))
             self.defaults = command("ip", "-j", "route", "show", "default")
             self.temp = tempfile.TemporaryDirectory(prefix="wizbind-")
