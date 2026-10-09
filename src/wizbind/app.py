@@ -237,7 +237,7 @@ def assisted(args, cfg, ap):
     print(
         "curl --fail --silent --show-error --noproxy '*' "
         "--connect-timeout 5 --max-time 10 --output /dev/null "
-        "--write-out 'POST /pairing: HTTP %{http_code}\\n' "
+        "--write-out '\\nPOST /pairing: HTTP %{http_code}\\n' "
         "--header 'Content-Type: application/json; charset=utf-8' "
         "--data-binary @- http://192.168.56.1/pairing <<'WIZBIND_PAIRING'"
     )
