@@ -6,32 +6,17 @@ Requires Linux, Python 3.11+, an idle AP-capable Wi-Fi interface (can be an exte
 
 # install
 
-## Dependencies
+## dependencies
 
-**Arch Linux**
+**Arch Linux**: `pacman -Syu --needed python python-cryptography iproute2 iw hostapd dnsmasq git curl`
 
-```sh
-pacman -Syu --needed python python-cryptography iproute2 iw hostapd dnsmasq git curl
-```
+**Void Linux**: `xbps-install -S python3 python3-cryptography iproute2 iw hostapd dnsmasq git curl`
 
-**Void Linux**
+**Debian 12+**: `apt update && apt install --no-install-recommends python3 python3-cryptography iproute2 iw hostapd dnsmasq-base git curl`
 
-```sh
-xbps-install -S python3 python3-cryptography iproute2 iw hostapd dnsmasq git curl
-```
+**Fedora**: `dnf install python3 python3-cryptography iproute iw hostapd dnsmasq git curl`
 
-**Debian 12+**
-
-```sh
-apt update
-apt install --no-install-recommends python3 python3-cryptography iproute2 iw hostapd dnsmasq-base git curl
-```
-
-**Fedora**
-
-```sh
-dnf install python3 python3-cryptography iproute iw hostapd dnsmasq opendoas git curl
-```
+## clone and run
 
 ```sh
 git clone https://github.com/50ck/wizbind
@@ -40,15 +25,15 @@ mkdir -p ~/.local/bin
 ln -s "$PWD/wizbind" ~/.local/bin/wizbind
 ```
 
-Keep the checkout in place and ensure `~/.local/bin` is in your PATH.
+Ensure `~/.local/bin` is in your PATH.
 
 # examples
 
 ```sh
-wizbind onboard wlan1
-wizbind                            # Start AP, DHCP and web panel
+wizbind onboard wlan0 # or the interface of the Wi-Fi dongle
+wizbind  # to start AP, DHCP and web panel
 
-# In another terminal, with the AP running:
+# in another terminal, with the AP running:
 wizbind list devices
 wizbind list modes
 wizbind device bulb0 mode ocean
