@@ -1,0 +1,472 @@
+[
+  {
+    "id": 1,
+    "name": "LibraryCategory_DynamicLight_Ocean",
+    "label": "Ocean",
+    "icon": "ocean.svg",
+    "color": "#92cfd4",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "efc64524dd7adc57bfc2e9c16d7ee7aa53f8a6764d137d5e9831f4b06a27a99d"
+  },
+  {
+    "id": 2,
+    "name": "LibraryCategory_DynamicLight_Romance",
+    "label": "Romance",
+    "icon": "romance.svg",
+    "color": "#7b79b2",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "6827f9069a9756f3a34665cebb66bf69ccd0cf1a53cb38324cd4712b9761fb91"
+  },
+  {
+    "id": 3,
+    "name": "LibraryCategory_DynamicLight_SunSet",
+    "label": "Sunset",
+    "icon": "sunset.svg",
+    "color": "#feb63f",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "ef6cddb7af9f2183437158a69a55bee2884fb242161650be51ab09f9f967b0db"
+  },
+  {
+    "id": 4,
+    "name": "LibraryCategory_DynamicLight_Party",
+    "label": "Party",
+    "icon": "party.svg",
+    "color": "#eb56a5",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "8054a40215c45d2fa656c43ac71a959cce4cb4250a619d1372baf2e9ca898744"
+  },
+  {
+    "id": 5,
+    "name": "LibraryCategory_DynamicLight_FirePlace",
+    "label": "Fireplace",
+    "icon": "fireplace.svg",
+    "color": "#e4aa08",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "28cb40151aff7490ec7ddc3800fb0eea0ed34f897980bf8899fee82eaf3eaa32"
+  },
+  {
+    "id": 6,
+    "name": "LibraryCategory_FixedLight_Cozy",
+    "label": "Cozy",
+    "icon": "cozy.svg",
+    "color": "#fce383",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "4c82fdbaaa1932ff9aaead4dd96bdcb8961b72b1af4f78cf5fdfba127d6c6afc"
+  },
+  {
+    "id": 7,
+    "name": "LibraryCategory_DynamicLight_Forest",
+    "label": "Forest",
+    "icon": "forest.svg",
+    "color": "#c5e053",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "54afc46b93e7e33c4872b67a1d3c13d80dfa33a161e66fa87a4732f202053adf"
+  },
+  {
+    "id": 8,
+    "name": "LibraryCategory_DynamicLight_PastelColors",
+    "label": "Pastel colors",
+    "icon": "pastel_colors.svg",
+    "color": "#b35ea1",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "c58141ec6ff6a0e71254ec611a80203462a2111dee9124308508890e17053370"
+  },
+  {
+    "id": 9,
+    "name": "LibraryCategory_DynamicLight_WakeUp",
+    "label": "Wake-up",
+    "icon": "wake_up.svg",
+    "color": "#d8f0ff",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "2907e06b625b3e00f6bd6bc091ad2d3631f03234bd6beee74734614d406ab7d6"
+  },
+  {
+    "id": 10,
+    "name": "LibraryCategory_DynamicLight_BedTime",
+    "label": "Bedtime",
+    "icon": "bedtime.svg",
+    "color": "#fadfaf",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "6920a6471f559422b1df04b61696f780f5c8f01ec933d3f68b599cb4abe7fb16"
+  },
+  {
+    "id": 11,
+    "name": "LibraryCategory_FixedLight_WarmWhite",
+    "label": "Warm",
+    "icon": "warm_white.svg",
+    "color": "#fef9cf",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "edbea78e3e21626f8ec1a66048449dd3c95f3076c64f88ae601b35922a4a789d"
+  },
+  {
+    "id": 12,
+    "name": "LibraryCategory_FixedLight_DayLight",
+    "label": "Daylight",
+    "icon": "daylight.svg",
+    "color": "#e3f3fd",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "74402fa912aa667c68278fa01ac89f973a6a8ccd17b2c1e260841f2fd041c12b"
+  },
+  {
+    "id": 13,
+    "name": "LibraryCategory_FixedLight_CoolWhite",
+    "label": "Cool",
+    "icon": "cool_white.svg",
+    "color": "#c4e8f9",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "f20bf0910c9156b960a95f486168aa90e389188bf5a868bf83f9910a5c2b86c1"
+  },
+  {
+    "id": 14,
+    "name": "LibraryCategory_FixedLight_NightLight",
+    "label": "Night light",
+    "icon": "night_light.svg",
+    "color": "#edeee6",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "c5cfd1fd2541b83ed51ac1de05f05b0371c3ba4153e025e524187e4e30eb325c"
+  },
+  {
+    "id": 15,
+    "name": "LibraryCategory_FixedLight_Focus",
+    "label": "Focus",
+    "icon": "focus.svg",
+    "color": "#e9fbfe",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "bc0eb62d6eafc1bd9f9135e0cd7586f6295f02c1a27c494e8e4233618e1389a6"
+  },
+  {
+    "id": 16,
+    "name": "LibraryCategory_FixedLight_Relax",
+    "label": "Relax",
+    "icon": "relax.svg",
+    "color": "#ffceff",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "5d5d7a8d8d598776d7cecfafb18174577b5423495cbdb947ced4b8e36339169b"
+  },
+  {
+    "id": 17,
+    "name": "LibraryCategory_FixedLight_True_Colors",
+    "label": "True colors",
+    "icon": "true_colors.svg",
+    "color": "#fff8d3",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "b4c9e29c5f486ca78f7a0cd4eed36a170679588b4290f1b9321022c616a7fe0c"
+  },
+  {
+    "id": 18,
+    "name": "LibraryCategory_FixedLight_TVTime",
+    "label": "TV time",
+    "icon": "tv_time.svg",
+    "color": "#88c9ff",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "d0808e77ff0e74c5f5d3ddc7ab84810f579e8e464381866cfab72ef3ac7ec087"
+  },
+  {
+    "id": 19,
+    "name": "LibraryCategory_FixedLight_PlantGrowth",
+    "label": "Plant growth",
+    "icon": "plant_growth.svg",
+    "color": "#ffa6ee",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "4f059d9104e5b1af7f3ae821afe9e41f7000b4d017a6bc9bdd36d445a3d5e135"
+  },
+  {
+    "id": 20,
+    "name": "LibraryCategory_DynamicLight_Spring",
+    "label": "Spring",
+    "icon": "spring.svg",
+    "color": "#ffd4e3",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "6c6cd38d649f74b2c54e57cdc7981bab60818c3fc650d11022c0e084c0b6c21c"
+  },
+  {
+    "id": 21,
+    "name": "LibraryCategory_DynamicLight_Summer",
+    "label": "Summer",
+    "icon": "summer.svg",
+    "color": "#ffd700",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "f6496430074562c314947aeb4cf34811549aab02b60cc1e531a8d1ea17563a13"
+  },
+  {
+    "id": 22,
+    "name": "LibraryCategory_DynamicLight_Fall",
+    "label": "Fall",
+    "icon": "fall.svg",
+    "color": "#F5A764",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "c7d34843bf4597ccdb5bccad20bca46a0067aacd7220234c5ca682e20c7c9b40"
+  },
+  {
+    "id": 23,
+    "name": "LibraryCategory_DynamicLight_DeepDive",
+    "label": "Deep dive",
+    "icon": "deep_dive.svg",
+    "color": "#229bff",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "ef4b7cfa3f42645b9b334a544c1a9ed21b6f3bdb61f75674f0d01b6cad86c7af"
+  },
+  {
+    "id": 24,
+    "name": "LibraryCategory_DynamicLight_Jungle",
+    "label": "Jungle",
+    "icon": "jungle.svg",
+    "color": "#13ae13",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "8af4a51fcac290d4d7673ec76093547c99a749c79d2aeadc76a22eb10fa4878a"
+  },
+  {
+    "id": 25,
+    "name": "LibraryCategory_DynamicLight_Mojito",
+    "label": "Mojito",
+    "icon": "mojito.svg",
+    "color": "#7ffc7f",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "5d97e3741e327b00f0361f17fb4df2c1f862a2804d52000e4cd8958cd0976bf1"
+  },
+  {
+    "id": 26,
+    "name": "LibraryCategory_DynamicLight_Club",
+    "label": "Club",
+    "icon": "club.svg",
+    "color": "#f59858",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "b55cea7fa5c23616612578db9ce9f65d544c1b59febe37fda057328bd085f3c0"
+  },
+  {
+    "id": 27,
+    "name": "LibraryCategory_DynamicLight_Christmas",
+    "label": "Christmas",
+    "icon": "christmas.svg",
+    "color": "#4bc24b",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "21e76bb3de5b96eb19e92bb3f882462eb6612c8888b8e1cef5c8e2a26269c9ac"
+  },
+  {
+    "id": 28,
+    "name": "LibraryCategory_DynamicLight_Halloween",
+    "label": "Halloween",
+    "icon": "halloween.svg",
+    "color": "#ffa940",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "55bcb8737b9c1275d9004787f48b3d3a25285c0bda2ffbb4d996965c80626ce4"
+  },
+  {
+    "id": 29,
+    "name": "LibraryCategory_DynamicLight_CandleLight",
+    "label": "Candlelight",
+    "icon": "candlelight.svg",
+    "color": "#fddc0d",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "cce461dc3c181efcead53f91b8134dd01ad7c57a145bb1bd5e7e66a35bd83089"
+  },
+  {
+    "id": 30,
+    "name": "LibraryCategory_DynamicLight_GoldenWhite",
+    "label": "Golden white",
+    "icon": "golden_white.svg",
+    "color": "#ffeb6f",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "5fe3fa8f26bab0e8e7389ecd7f34e7a5bfe2cba56d0866b3e8f78fbdceabc710"
+  },
+  {
+    "id": 31,
+    "name": "LibraryCategory_DynamicLight_Pulse",
+    "label": "Pulse",
+    "icon": "pulse.svg",
+    "color": "#ffe632",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "429a8acbeae0245391d5e3fb023ab313321eac5e87e73f061477d7699b6de679"
+  },
+  {
+    "id": 32,
+    "name": "LibraryCategory_DynamicLight_SteamPunk",
+    "label": "Steampunk",
+    "icon": "steampunk.svg",
+    "color": "#fdf9cf",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "ed892cc938b1a9a1eb087aaa59e6ba46db19d2f350ca2a68ebde385d61802fd2"
+  },
+  {
+    "id": 33,
+    "name": "LibraryCategory_DynamicLight_Diwali",
+    "label": "Diwali",
+    "icon": "diwali.svg",
+    "color": "#ffd79a",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "abbe55529dd6f3fa68ec102162c201beda2c7983f0e93f8b51097d7d9c220449"
+  },
+  {
+    "id": 34,
+    "name": "LibraryCategory_StaticLight_White",
+    "label": "White",
+    "icon": "white.svg",
+    "color": "#feffe3",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "40f17341cbaf53ec7a3edbb4a0a487f4b3fa665dea566cbf23b8aca8a118ae5c"
+  },
+  {
+    "id": 35,
+    "name": "LibraryCategory_DynamicLight_Alarm",
+    "label": "Alarm",
+    "icon": "alarm.svg",
+    "color": "#e3f3fd",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "76ace57a756ef3646c71bb52a04e27b3fa50a31a754aa199ecb10be01a10d3d6"
+  },
+  {
+    "id": 36,
+    "name": "LibraryCategory_DynamicLight_SnowySky",
+    "label": "Snowy sky",
+    "icon": "snowy_sky.svg",
+    "color": "#e3f3fd",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "411c619b93dec9f43866e1786ddb512bbec5233819d2b23287f7aecea41c1b3d"
+  },
+  {
+    "id": 40,
+    "name": "LibraryCategory_DynamicLight_DimToWarm",
+    "label": "Dim-to-warm",
+    "icon": "dim_to_warm.svg",
+    "color": "#FFFED6",
+    "dynamic": true,
+    "accessory": false,
+    "sha256": "49ad61db1cf82268d7afaf2ebb3f0a73d8237a7314bd8c7b75a4ea329090a429"
+  },
+  {
+    "id": 103,
+    "name": "LibraryCategory_Eyecare_20",
+    "label": "Study break reminder",
+    "icon": "eyecare_20.svg",
+    "color": "#e9fbfe",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "95c9111a2ec1e76e516292081fe45953a58422bbcef0dcf3bf65243cb70d0a6a"
+  },
+  {
+    "id": 100,
+    "name": "LibraryCategory_Eyecare_Studying",
+    "label": "Study",
+    "icon": "eyecare_studying.svg",
+    "color": "#e9fbfe",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "51776a8bf0db1f85a58393ad70292eca9be0b6ea381fc5731c66d2a1b927a6e4"
+  },
+  {
+    "id": 101,
+    "name": "LibraryCategory_Eyecare_ScreenFocus",
+    "label": "Screen",
+    "icon": "eyecare_screen_focus.svg",
+    "color": "#e9fbfe",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "3250f23b72601f58cff2cfc9c0659528bb7dce01f1dc017bf8feed1936532db7"
+  },
+  {
+    "id": 102,
+    "name": "LibraryCategory_Eyecare_FocusActivity",
+    "label": "Activity",
+    "icon": "eyecare_focus_activity.svg",
+    "color": "#e9fbfe",
+    "dynamic": false,
+    "accessory": false,
+    "sha256": "a58597fb80b2c00aa38eea8ed95a62c28abc361c7160bd042642d1cfef477783"
+  },
+  {
+    "id": 201,
+    "name": "LibraryCategory_DynamicLight_Cinematic",
+    "label": "Cinematic",
+    "icon": "cinematic.svg",
+    "color": "#35FCFF",
+    "dynamic": true,
+    "accessory": true,
+    "sha256": "42e1816d2f119f70bca4ef6acc8fcb21d5deddf5ad95d83d6ec8f468e9766dec"
+  },
+  {
+    "id": 202,
+    "name": "LibraryCategory_DynamicLight_Vibrant",
+    "label": "Vibrant",
+    "icon": "vibrant.svg",
+    "color": "#FF35D9",
+    "dynamic": true,
+    "accessory": true,
+    "sha256": "1a722c8486165a7caa97321eb0175c502b628269231db5622dfdbd93e2ea9ee8"
+  },
+  {
+    "id": 203,
+    "name": "LibraryCategory_DynamicLight_Rhythmic",
+    "label": "Rhythmic",
+    "icon": "rhythmic.svg",
+    "color": "#3589FF",
+    "dynamic": true,
+    "accessory": true,
+    "sha256": "9f14745a03d4a907eee0f4b6c39c41d4faf56b20570a006c4d366e46c42b59df"
+  },
+  {
+    "id": 204,
+    "name": "LibraryCategory_DynamicLight_Relaxation",
+    "label": "Relaxation",
+    "icon": "relaxation.svg",
+    "color": "#EDFF95",
+    "dynamic": true,
+    "accessory": true,
+    "sha256": "00b1a86176da7a2f60fae40ab3cb6f4eecccf4878d52581cbfa0ad46a89d5b1d"
+  },
+  {
+    "id": 205,
+    "name": "LibraryCategory_DynamicLight_FollowVideoSync",
+    "label": "Follow sync",
+    "icon": "follow_video_sync.svg",
+    "color": "#FFFCBC",
+    "dynamic": true,
+    "accessory": true,
+    "sha256": "a82dcf5a1f9ff180b01a6dccf0940da18f46c0274feda94c2355d6d73f55e61d"
+  },
+  {
+    "id": 207,
+    "name": "LibraryCategory_DynamicLight_FollowSportsSync",
+    "label": "Sports Live",
+    "icon": "follow_sports_sync.svg",
+    "color": "#00C4FF",
+    "dynamic": true,
+    "accessory": true,
+    "sha256": "8657d5e18ddd794016ad972be1f81376acec33032bd711f381df749c630a9b3c"
+  }
+]
