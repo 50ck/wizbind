@@ -10,10 +10,26 @@ import signal
 import socket
 import subprocess
 import tempfile
+import threading
 import time
 from pathlib import Path
 
 TOOLS = ("ip", "iw", "hostapd", "dnsmasq")
+
+
+def print_events(stream):
+    quiet = (
+        ": started, version ",
+        ": compile time options: ",
+        ": DHCP, IP range ",
+        ": DHCP, sockets bound exclusively ",
+        ": interface state ",
+        ": AP-ENABLED",
+    )
+    with stream:
+        for line in stream:
+            if not any(text in line for text in quiet):
+                print(line.rstrip(), flush=True)
 
 
 class AlreadyRunning(RuntimeError):
@@ -155,6 +171,7 @@ class Session:
         self.temp = None
         self.lock = None
         self.log_events = False
+        self.readers = {}
 
     def __enter__(self):
         try:
@@ -206,11 +223,19 @@ class Session:
             process = subprocess.Popen(
                 args,
                 stdin=subprocess.DEVNULL,
-                stdout=None if self.log_events else subprocess.DEVNULL,
-                stderr=None if self.log_events else subprocess.DEVNULL,
+                stdout=subprocess.PIPE if self.log_events else subprocess.DEVNULL,
+                stderr=subprocess.STDOUT if self.log_events else subprocess.DEVNULL,
+                text=True,
+                bufsize=1,
                 start_new_session=True,
             )
             self.processes.append(process)
+            if self.log_events:
+                reader = threading.Thread(
+                    target=print_events, args=(process.stdout,), daemon=True
+                )
+                self.readers[process] = reader
+                reader.start()
         finally:
             signal.pthread_sigmask(signal.SIG_SETMASK, old_mask)
         return process
@@ -224,6 +249,9 @@ class Session:
                 os.killpg(process.pid, signal.SIGKILL)
                 process.wait(timeout=3)
         self.processes.remove(process)
+        reader = self.readers.pop(process, None)
+        if reader is not None:
+            reader.join(timeout=1)
 
     def alive(self):
         if any(process.poll() is not None for process in self.processes):
