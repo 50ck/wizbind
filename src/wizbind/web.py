@@ -184,6 +184,12 @@ def serve(
         raise ValueError("Use loopback or isolated-AP web listener")
 
     class Handler(BaseHTTPRequestHandler):
+        def handle(self):
+            try:
+                super().handle()
+            except (BrokenPipeError, ConnectionResetError):
+                pass  # The panel cancels polling when a control changes.
+
         def log_message(self, *args):
             pass  # No HTTP bodies or user data in persistent logs.
 
