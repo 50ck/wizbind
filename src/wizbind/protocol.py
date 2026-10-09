@@ -1,6 +1,7 @@
 """Bound local HTTP and WiZ UDP; credentials never enter diagnostics."""
 
 import base64
+import errno
 import hashlib
 import hmac
 import http.client
@@ -15,7 +16,12 @@ def bind(sock, interface, source):
     sock.setsockopt(
         socket.SOL_SOCKET, socket.SO_BINDTODEVICE, interface.encode() + b"\0"
     )
-    sock.bind((str(source), 0))
+    try:
+        sock.bind((str(source), 0))
+    except OSError as error:
+        if error.errno == errno.EADDRNOTAVAIL:
+            raise RuntimeError("AP is not running. Start wizbind.") from None
+        raise
 
 
 def request(interface, address, peer, path, payload=None, timeout=3):
