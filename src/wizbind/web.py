@@ -148,14 +148,14 @@ def serve(
         }
         try:
             data["response"] = (
-                query(interface, address, target, "getPilot")
+                query(interface, address, target, "getPilot", timeout=5)
                 if params is None
-                else set_pilot(interface, address, target, params)
+                else set_pilot(interface, address, target, params, timeout=5)
             )
             if params is not None and "sceneId" in params:
                 deadline = time.monotonic() + 2
                 while True:
-                    data["readback"] = query(interface, address, target, "getPilot")
+                    data["readback"] = query(interface, address, target, "getPilot", timeout=5)
                     if data["readback"]["result"].get("sceneId") == params["sceneId"]:
                         break
                     if time.monotonic() >= deadline:
@@ -275,7 +275,7 @@ def serve(
                     if set(controls) != {"ip"}:
                         raise ValueError("Supply one local IP")
                     target = validate_peer(controls["ip"])
-                    result = query(interface, address, target, "getPilot")["result"]
+                    result = query(interface, address, target, "getPilot", timeout=5)["result"]
                     if not isinstance(result.get("mac"), str):
                         raise ValueError("No WiZ identity in response")
                     with lock:

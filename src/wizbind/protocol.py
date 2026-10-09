@@ -196,7 +196,7 @@ def verify_home(interface, address, peer, mac, home_id, timeout=10):
     raise RuntimeError("Bulb did not confirm the requested nonzero homeId")
 
 
-def set_pilot(interface, address, peer, params, signing_key=None):
+def set_pilot(interface, address, peer, params, signing_key=None, timeout=3):
     network = IPv4Interface(address)
     if IPv4Address(peer) not in network.network or IPv4Address(peer) in (
         network.ip,
@@ -207,12 +207,12 @@ def set_pilot(interface, address, peer, params, signing_key=None):
     packet = udp_packet("setPilot", params, signing_key)
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
         bind(sock, interface, network.ip)
-        sock.settimeout(3)
+        sock.settimeout(timeout)
         sock.sendto(
             json.dumps(packet, ensure_ascii=False, separators=(",", ":")).encode(),
             (peer, 38899),
         )
-        deadline = time.monotonic() + 3
+        deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:
             sock.settimeout(max(0.01, deadline - time.monotonic()))
             data, sender = sock.recvfrom(8192)
