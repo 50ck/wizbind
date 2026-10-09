@@ -219,7 +219,6 @@ def assisted(args, cfg, ap):
     print("WIZBIND_PAIRING")
     print("\nListening for updates...", flush=True)
     deadline = time.monotonic() + args.timeout
-    known = {d["mac"] for d in config.devices(cfg).values()}
     target = config.devices(cfg)[args.device]["mac"] if args.device else None
     seen = set()
     while time.monotonic() < deadline:
@@ -233,9 +232,7 @@ def assisted(args, cfg, ap):
             if len(fields) < 3:
                 continue
             mac, ip = fields[1].replace(":", "").lower(), fields[2]
-            if (target is not None and mac != target) or (
-                target is None and mac in known
-            ):
+            if target is not None and mac != target:
                 continue
             if (mac, ip) not in seen:
                 print(f"DHCP lease observed: {mac} → {ip}", flush=True)
