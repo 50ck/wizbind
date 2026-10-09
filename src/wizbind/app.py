@@ -402,9 +402,8 @@ def main(argv=None):
         or cfg["ap"].get("interface")
     )
     if not interface or not re.fullmatch(r"[a-zA-Z0-9_.-]{1,15}", interface):
-        raise ValueError(
-            "Provide a dedicated AP dongle: wizbind onboard wlan1 or wizbind wlan1"
-        )
+        print("Provide interface.", file=sys.stderr)
+        return 1
     if args.action == "onboard":
         if args.device and args.device not in config.devices(cfg):
             raise ValueError("Unknown device label")
