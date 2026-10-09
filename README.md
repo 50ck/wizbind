@@ -8,9 +8,6 @@ Requires Linux, Python 3.11+, an idle AP-capable Wi-Fi interface (can be an exte
 
 ## Dependencies
 
-Run package-manager commands as root or through your configured sudo/doas.
-With sudo, launch `wizbind --elevate sudo`; doas is the default.
-
 **Arch Linux**
 
 ```sh
