@@ -317,6 +317,7 @@ def runtime(args, cfg, interface):
         settings["country"],
         int(settings["channel"]),
     ) as ap:
+        ap.log_events = args.action == "onboard"
         print("Setting up interface...", flush=True)
         ap.prepare_ap(
             reservations={d["mac"]: d["ip"] for d in config.devices(cfg).values()}

@@ -154,6 +154,7 @@ class Session:
         self.changed = False
         self.temp = None
         self.lock = None
+        self.log_events = False
 
     def __enter__(self):
         try:
@@ -205,8 +206,8 @@ class Session:
             process = subprocess.Popen(
                 args,
                 stdin=subprocess.DEVNULL,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
+                stdout=None if self.log_events else subprocess.DEVNULL,
+                stderr=None if self.log_events else subprocess.DEVNULL,
                 start_new_session=True,
             )
             self.processes.append(process)
@@ -287,8 +288,13 @@ class Session:
     def activate_ap(self):
         self.mode("__ap")
         self.add_address(self.address)
-        self.start("hostapd", self.ap_config)
-        self.start("dnsmasq", "--keep-in-foreground", "--conf-file=" + self.dhcp_config)
+        self.start("hostapd", *(["-t"] if self.log_events else []), self.ap_config)
+        self.start(
+            "dnsmasq",
+            "--keep-in-foreground",
+            "--conf-file=" + self.dhcp_config,
+            *(["--log-dhcp", "--log-facility=-"] if self.log_events else []),
+        )
         self.alive()
 
     def wait_for_ap(self, timeout=15):
