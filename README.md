@@ -4,6 +4,8 @@
 
 Requires Linux, Python 3.11+, an idle AP-capable Wi-Fi interface (can be an external Wi-Fi dongle) and a second Wi-Fi device (a laptop or another dongle) with curl for pairing.
 
+The idea is to use an interface (for example, an external dongle) as an access point for a virtual LAN that we set up without an internet connection. Then, another device (such as a laptop or smartphone) to connect to the bulb’s hotspot and send a POST request to `/pairing` with the credentials of our access point for the bulb to connect to us. Once connected, we then send a POST `/complete` request to the bulb from our virtual LAN to finish the pairing.
+
 See it in action:
 
 https://github.com/user-attachments/assets/3eba5ac0-e679-448f-b5d0-e3d11a15d121
@@ -15,7 +17,6 @@ Download dependencies:
 - **Void Linux**: `xbps-install -S python3 python3-cryptography iproute2 iw hostapd dnsmasq git curl`
 - **Debian 12+**: `apt update && apt install --no-install-recommends python3 python3-cryptography iproute2 iw hostapd dnsmasq-base git curl`
 - **Fedora**: `dnf install python3 python3-cryptography iproute iw hostapd dnsmasq git curl`
-
 
 Then: 
 
@@ -30,13 +31,13 @@ Ensure `~/.local/bin` is in your PATH.
 ## examples
 
 ```sh
-wizbind onboard wlan0 # or the interface of the Wi-Fi dongle
+wizbind onboard wlan0  # or the interface of the Wi-Fi dongle
 wizbind  # to start AP, DHCP and web panel
 
 # in another terminal, with the AP running:
 wizbind list devices
 wizbind list modes
-wizbind device bulb0 mode ocean
+wizbind device bulb0 mode 16
 wizbind device bulb0 color '#ff00ff66'
 wizbind device bulb0 brightness 60
 wizbind device bulb0 off
