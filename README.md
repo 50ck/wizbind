@@ -4,6 +4,10 @@
 
 Requires Linux, Python 3.11+, an idle AP-capable Wi-Fi interface (can be an external Wi-Fi dongle) and a second Wi-Fi device (a laptop or another dongle) with curl for pairing.
 
+See it in action:
+
+https://github.com/user-attachments/assets/3eba5ac0-e679-448f-b5d0-e3d11a15d121
+
 ## install
 Download dependencies:
 
